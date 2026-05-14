@@ -2,16 +2,6 @@
 
 Este proyecto es una aplicación web construida con Java y Spring Boot que implementa un sistema de inicio de sesión (login) minimalista, seguro y con un diseño de interfaz de usuario de tema oscuro (dark-themed).
 
-## ¿De qué trata el proyecto? (Explicación Sencilla)
-
-Imagina que este proyecto es como un **club privado muy exclusivo**:
-
-*   **Java y Spring Boot (El Edificio y el Personal):** Son los cimientos y toda la estructura que hace que el club funcione. Controlan la energía, el agua y organizan a todo el personal.
-*   **Spring Security (El Guardia de Seguridad):** Es el portero en la entrada que verifica tu identificación (usuario y contraseña) para decidir si puedes entrar o no.
-*   **Sesiones basadas en Cookies y Base de Datos (La Pulsera VIP):** Cuando entras al club, te ponen una pulsera especial (una "cookie" en tu navegador de internet). En lugar de solo confiar en la pulsera, el club anota en un registro muy seguro (una base de datos) a quién le dio esa pulsera. Así, si sales un momento al patio y vuelves a entrar, el guardia solo revisa tu pulsera y la compara con su registro para dejarte pasar sin pedirte tu identificación de nuevo.
-*   **PostgreSQL (La Bóveda):** Es una caja fuerte gigante y muy segura donde se guardan las cuentas de todos los miembros del club y el registro de las pulseras VIP.
-*   **Thymeleaf (El Diseñador de Interiores):** Es el encargado de pintar las paredes, acomodar los muebles y asegurarse de que todo se vea moderno y elegante (en este caso, un diseño con colores oscuros y premium).
-
 ## Tecnologías Utilizadas
 
 *   **Java 21:** Lenguaje de programación principal.

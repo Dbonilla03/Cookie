@@ -2,28 +2,40 @@ package com.app.Cookie.model;
 
 import jakarta.persistence.*;
 
+/**
+ * Entidad 'User'.
+ * Representa la tabla "app_users" en la base de datos PostgreSQL.
+ * Cada instancia de esta clase equivale a una fila en esa tabla.
+ */
 @Entity
 @Table(name = "app_users")
 public class User {
 
+    // Identificador único (Clave Primaria), generado automáticamente
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // Nombre de usuario para el login. No puede ser nulo y debe ser único.
     @Column(nullable = false, unique = true, length = 50)
     private String username;
 
+    // Contraseña encriptada del usuario
     @Column(nullable = false)
     private String password;
 
+    // Nombre completo del usuario
     @Column(nullable = false, length = 100)
     private String fullName;
 
+    // Rol del usuario en el sistema (ej. "USER", "ADMIN")
     @Column(nullable = false, length = 20)
     private String role;
 
+    // Constructor vacío requerido por JPA (Hibernate)
     public User() {}
 
+    // Constructor para inicializar un usuario fácilmente
     public User(String username, String password, String fullName, String role) {
         this.username = username;
         this.password = password;
@@ -32,6 +44,7 @@ public class User {
     }
 
     // ── Getters & Setters ──
+    // Métodos para acceder y modificar las propiedades privadas de la clase
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie · Iniciar Sesión</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="auth-page">
+
+    <!-- Fondo animado -->
+    <div class="bg-gradient"></div>
+    <div class="bg-grain"></div>
+
+    <div class="auth-container">
+        <!-- Logo / Brand -->
+        <div class="auth-brand">
+            <div class="brand-icon">🍪</div>
+            <h1>Cookie</h1>
+            <p class="brand-subtitle">Gestión de sesiones segura</p>
+        </div>
+
+        <!-- Card de login -->
+        <div class="auth-card">
+            <h2>Bienvenido de vuelta</h2>
+            <p class="auth-description">Ingresa tus credenciales para continuar</p>
+
+            <!-- Mensajes -->
+            <div th:if="${errorMsg}" class="alert alert-error">
+                <span class="alert-icon">⚠</span>
+                <span th:text="${errorMsg}"></span>
+            </div>
+            <div th:if="${logoutMsg}" class="alert alert-success">
+                <span class="alert-icon">✓</span>
+                <span th:text="${logoutMsg}"></span>
+            </div>
+            <div th:if="${successMsg}" class="alert alert-success">
+                <span class="alert-icon">✓</span>
+                <span th:text="${successMsg}"></span>
+            </div>
+
+            <form th:action="@{/login}" method="post" class="auth-form">
+                <div class="form-group">
+                    <label for="username">Usuario</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <input type="text" id="username" name="username" placeholder="Tu nombre de usuario" required autofocus>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <input type="password" id="password" name="password" placeholder="Tu contraseña" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword()">
+                            <svg id="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <span>Iniciar Sesión</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>¿No tienes cuenta? <a th:href="@{/register}">Crear cuenta</a></p>
+            </div>
+        </div>
+
+        <p class="auth-hint">Cookie de sesión: <code>COOKIE_SESSION</code></p>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const input = document.getElementById('password');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+</body>
+</html>
